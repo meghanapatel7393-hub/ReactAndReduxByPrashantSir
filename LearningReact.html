@@ -296,5 +296,125 @@
         </ul>
       </ul>
     </ul>
+
+    <ul>
+      <li><h1>Map Method</h1></li>
+      <ul>
+        <li>Purpose : Render listjs from array data.</li>
+        <li>JSX Elements: Transform array items into JSX.</li>
+        <li>
+          Inline Rendering: Directly inside JSX {items.map(item=&gt;&lt;li
+          key={item.id}&gt;{item.name}&lt;/li&gt;)}
+        </li>
+        <li>
+          Key Prop: Assign unique key for optiomized re-renders. &lt;div
+          key={item.id}&gt;{item.name}&lt;/div&gt;
+        </li>
+      </ul>
+    </ul>
+
+    <ul>
+      <li><h1>Conditional Rendering</h1></li>
+      <ul>
+        Conditional Rendering
+        <ul>
+          <li>
+            JSX Elements: Use JSX to conditionally render elements based on a
+            condition.
+          </li>
+          <li>Display contnt based on certain conditions.</li>
+          <li>Allows for dynamic user interfaces.</li>
+        </ul>
+        Methods:
+        <ul>
+          <li>if-else statement - Choose between two blocks of content</li>
+          <li>
+            ternary operator - Choose between two values based on a condition.
+            Quick way to choose between two options.
+          </li>
+          <li>
+            Logical Operators: Useful for rendering content when a condition is
+            true
+          </li>
+          <li>Logical && operator - Evaluate multiple conditions</li>
+          <li>Logical || operator - Evaluate multiple conditions</li>
+        </ul>
+        Benifits:
+        <ul>
+          <li>Cleaner and more readable code</li>
+          <li>Enhanced user experience</li>
+          <li>Reduces unnecessary code/rendering</li>
+          <li>Makes apps more interactive and responsive</li>
+        </ul>
+      </ul>
+    </ul>
+
+    <ul>
+      <li>
+        <h1>Passing Data via Props</h1>
+      </li>
+      <ul>
+        Props in react:
+        <ul>
+          <li>Short for properties</li>
+          <li>Used to pass data between components</li>
+          <li>Mechanism to share/pass data between components</li>
+          <li>Read only by default</li>
+        </ul>
+        Usage:
+        <ul>
+          <li>
+            Pass data from parent component to child component using props
+          </li>
+          <li>
+            Makes components reusable and modular. Pass data between components
+          </li>
+          <li>Define as attributes in JSX</li>
+        </ul>
+        Key Points:
+        <ul>
+          <li>Data flows one-way from parent to child(Downward Flow)</li>
+          <li>Props are read-only (Immutable)</li>
+          <li>Used for communication between components</li>
+        </ul>
+        Examples:
+        <ul>
+          &lt;Header title={title} /&gt;
+        </ul>
+        Props defin in javaScript & typeScript :
+        <ul>
+          <li>Props in javaScript : Object</li>
+          <li>Props in typeScript : Interface</li>
+        </ul>
+      </ul>
+    </ul>
+    <ul>
+      <li><h1>CSS Modules</h1></li>
+      <ul>
+        <li>Localized class Names to avoid global conflicts.</li>
+        <li>Styles are scoped to individual components.</li>
+        <li>Helps in creating component-specific styles.</li>
+        <li>Automatically generate unique class names.</li>
+        <li>Promotes modular and maintainable CSS.</li>
+        <li>Can use alongside global CSS when needed</li>
+        <li>
+          create same class name + . + module+ . + css like App.module.css
+        </li>
+        <li>
+          to see example check MyItem.jsx file there used MyItem.module.css file
+        </li>
+        <li style="color: blueviolet">
+          create style module for particular component
+        </li>
+        <li style="color: blueviolet">
+          that module import this way = import styles from
+          "./MyItem.module.css";
+        </li>
+        <li style="color: blueviolet">
+          that used this way = className={`${styles["kg-item"]}
+          list-group-item`}
+        </li>
+      </ul>
+    </ul>
   </body>
 </html>
