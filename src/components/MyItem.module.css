@@ -10,3 +10,8 @@
   font-weight: bold;
   color: brown;
 }
+
+.button {
+  float: right;
+  min-width: 80px;
+}

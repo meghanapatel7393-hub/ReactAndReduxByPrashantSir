@@ -3,10 +3,10 @@ function AddTodo() {
     <div className="container">
       <div className="row kg-row">
         <div className="col-6">
-          <input placeholder="Enter Todo Here" />
+          <input placeholder="Enter Todo Here" id="input" />
         </div>
         <div className="col-4">
-          <input type="date" />
+          <input type="date" id="dates" />
         </div>
         <div className="col-2">
           <button type="button" className="btn btn-success kg-button">

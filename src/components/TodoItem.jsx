@@ -1,6 +1,6 @@
-function TodoItem() {
-  let todoName = "Buy Milk";
-  let todoDate = "4/10/2025";
+function TodoItem({ todoName, todoDate }) {
+  // let todoName = "Buy Milk";
+  // let todoDate = "4/10/2025";
   return (
     <div className="container">
       <div className="row kg-row">

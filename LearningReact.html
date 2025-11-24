@@ -416,5 +416,49 @@
         </li>
       </ul>
     </ul>
+
+    <ul>
+      <li><h1>Passing Children</h1></li>
+      <ul>
+        <li>children is a special prop for passing elements into component</li>
+        <li>Used for flexible and reusable components designs</li>
+        <li>Common in layout or container components</li>
+        <li>Accessed using props.children</li>
+        <li>Can be an array or a single element</li>
+        <li>can be any content: string, number, JSX, or components.</li>
+        <li>Enhanced component composability and reusability</li>
+        <li style="color: blueviolet">
+          Check demo in this project: class name is Container.jsx how its used
+          check FoodApp.jsx
+        </li>
+        <li>Example : &lt;Container&gt;{children}&lt;/Container&gt;</li>
+      </ul>
+    </ul>
+
+    <ul>
+      <li><h1>Handling Events</h1></li>
+      <ul>
+        <li>React events use camelCase , e.g., onClick.</li>
+        <li>Uses synthentic events, not direct browser events.</li>
+        <li>Event handlers can be functions or arrow functions.</li>
+        <li>Use event.preventDefault() to prevent default behavior.</li>
+        <li>Use onChange for controlled form inputs.</li>
+        <li>Avoid inline arrow functions in JSX for performance</li>
+      </ul>
+    </ul>
+
+    <ul>
+      <li><h1>Passing Functions via Props</h1></li>
+      <ul>
+        <li>Pass functions as props to child components</li>
+        <li>Pass dynamic behaviour between components</li>
+        <li>Enables upward comminication from child to parent.</li>
+        <li>Commonly used for event handling</li>
+        <li>Parent defines a function, child invokes it.</li>
+        <li>Enhances component interactivity.</li>
+        <li>Example: &lt;Button onClick={handleClick}/&gt;</li>
+        <li>Implement Example in FoodApp.jsx</li>
+      </ul>
+    </ul>
   </body>
 </html>
