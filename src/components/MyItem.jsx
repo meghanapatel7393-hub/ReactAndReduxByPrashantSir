@@ -8,16 +8,22 @@ function MyItem(props) {
   // };
 
   return (
-    <li className={`list-group-item ${styles["kg-item"]} ${styles["fd-row"]} `}>
+    <li
+      className={`list-group-item ${styles["kg-item"]} ${styles["fd-row"]} ${
+        props.bought && "active"
+      }`}
+    >
       <span className={`${styles["kg-span"]}`}>{item}</span>
       <button
-        className={`${styles["button"]} btn btn-info`}
+        className={`${styles["button"]} btn  ${
+          props.bought ? "btn-danger" : "btn-info"
+        }`}
         onClick={props.handleBuyButtonClicked}
         // onClick={(event) => handleBuyButtonClicked(item, event)} // onClick have bydefault one event object that is synthetic object
         // onClick={() => handleBuyButtonClicked(item)}
         // onClick={ handleBuyButtonClicked} // if no any parameter need
       >
-        Buy
+        {props.bought ? "Remove" : "Buy"}
       </button>
     </li>
   );

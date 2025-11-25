@@ -1,7 +1,9 @@
+import { useState } from "react";
 import ErrorMessage from "./ErrorMessage";
 import MyItem from "./MyItem";
 
 function FoodItems(props) {
+  let [activeItems, setActiveItem] = useState([]);
   // if (foodItem.length === 0) {
   //   return <h1>No item found</h1>;
   // }
@@ -17,13 +19,21 @@ function FoodItems(props) {
           <MyItem
             items={item}
             key={item}
+            bought={activeItems.includes(item)}
             handleBuyButtonClicked={(e) => {
+              if (activeItems.includes(item)) {
+                setActiveItem(activeItems.filter((i) => i !== item));
+              } else {
+                setActiveItem([...activeItems, item]);
+              }
+
               console.log(e);
               console.log(`${item} being bought`);
             }}
           />
         );
       })}
+      {/* {console.log("here when state changed it re renderFood Item?")} */}
     </>
   );
 }
