@@ -24,7 +24,12 @@ function ButtonContainer(props) {
     <div id="button-container" className={style["button-container"]}>
       {buttonname.map((button) => {
         return (
-          <button className={style["button"]} key={button}>
+          <button
+            className={style["button"]}
+            key={button}
+            // onClick={props.onButtonClicked} here we get data using event.target.innerText OR we can pass from here
+            onClick={() => props.onButtonClicked(button)}
+          >
             {button}
           </button>
         );
