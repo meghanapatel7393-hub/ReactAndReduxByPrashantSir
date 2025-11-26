@@ -1,4 +1,6 @@
 import { useState } from "react";
+// import { IoMdAddCircleOutline } from "react-icons/io";
+import { BiMessageAdd } from "react-icons/bi";
 
 function AddTodo({ onAddItems }) {
   /*
@@ -44,7 +46,9 @@ function AddTodo({ onAddItems }) {
             className="btn btn-success kg-button"
             onClick={handleOnCLicked}
           >
-            Add
+            <BiMessageAdd />
+
+            {/* <IoMdAddCircleOutline /> */}
           </button>
         </div>
       </div>

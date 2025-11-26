@@ -521,5 +521,317 @@
         </li>
       </ul>
     </ul>
+
+    <ul>
+      <li><h1>React-Icon-Library</h1></li>
+      <ul>
+        <li>You can use a lot of icons without managing them.</li>
+        <li style="color: red">
+          Install package : npm install react-icons -save
+        </li>
+        <li>Use Icon: import {IconName} from 'react-icons/fc'</li>
+        <li>
+          <a href="https://react-icons.github.io/react-icons/" target="_blank"
+            >Visit React Icons</a
+          >
+        </li>
+      </ul>
+    </ul>
+
+    <ul>
+      <li>
+        <h1>
+          Inspecting with React Devloper Tools
+          <span style="color: red">(this is a chrome extension)</span>
+        </h1>
+      </li>
+      <ul>
+        <!-- <li>Inspection : npm install --save-dev react-devtools</li>
+        <li>Run : npx react-devtools</li> -->
+        <li>Inspectiong: Allows inspection of React component hierarchy</li>
+        <li>
+          State & Props: View and edit the current state and props of a
+          component
+        </li>
+        <li>
+          Performance: Analyze component re-render and performance bottleneck
+        </li>
+        <li>
+          Navigation: Conveniently navigate through the entire component tree.
+        </li>
+        <li>
+          Filtering: Filter components by name or source to locate them quickly.
+        </li>
+        <li>
+          Real-time feedback: see live changes as you modify state or props.
+        </li>
+        <li>
+          <a
+            href="https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi"
+            target="_blank"
+            >Visit React Devloper Tools</a
+          >
+        </li>
+      </ul>
+    </ul>
+
+    <ul>
+      <li><h1>How React Works</h1></li>
+      <ul>
+        <li>Root Component</li>
+        <ul>
+          <li>The App is the main or root component of a React application</li>
+          <li>it's the starting point of your React Component tree</li>
+        </ul>
+        <li>Virtual DOM</li>
+        <ul>
+          <li>
+            React Creates an in-memory structure of your components called the
+            Virtual DOM
+          </li>
+          <li>Different from the actual browser DOM</li>
+          <li>
+            The Virtual DOM is a JavaScript object representation of the HTML
+          </li>
+          <li>The Virtual DOM is used by React to efficiently update the UI</li>
+          <li>It's a lightweight representation of the actual DOM</li>
+          <li>
+            it's a lightweight representation where each node stands for a
+            component and its attributes
+          </li>
+        </ul>
+        <li>Reconciliation Process</li>
+        <ul>
+          <li>
+            When component data changes, React updates the virtual DOM's state
+            to mirror these changes
+          </li>
+          <li>
+            React then compares the current and previous version of the virtual
+            DOM
+          </li>
+          <li>If there are any differences, React updates the actual DOM</li>
+          <li>it identifies the specific nodes that need updating.</li>
+          <li>
+            Only these nodes are updated in the real browser DOm, making it
+            efficient
+          </li>
+        </ul>
+        <li>React and ReactDOM</li>
+        <ul>
+          <li>
+            The actual updating of the browser's DOM isn't done by react itself
+          </li>
+          <li>it's handled by a companion library called ReactDOM</li>
+        </ul>
+        <li>Root Element</li>
+        <ul>
+          <li>
+            The root div acts as a container for all the components/React-app
+          </li>
+          <li>The script tag is where the react app starts executing.</li>
+          <li>
+            if you check main.jsx file, the component three is render inside
+            this root element/div
+          </li>
+        </ul>
+        <li>Strict Mode Component:</li>
+        <ul>
+          <li>it's a special component in React</li>
+          <li>it's used to detect potential problems in your application</li>
+          <li>Doesn't affect the behavior of your application</li>
+          <li>Dpesn't have a visual representation</li>
+          <li>its purpose is to spot potential issues in your application</li>
+        </ul>
+        <li>Plateform Independence</li>
+        <ul>
+          <li>React design allows it to be Plateform-agnostic</li>
+          <li>it can run on any platform</li>
+          <li>
+            While react-dom helps build web UIs using React, ReactNative can be
+            used to craft mobile app UIs
+          </li>
+        </ul>
+      </ul>
+    </ul>
+
+    <ul>
+      <li>
+        <h1>React Vs Angular vs Vue</h1>
+      </li>
+      <ul>
+        <li>React, Angular, and Vue:</li>
+        <ul>
+          <li>React is a library, while Angular and vue.js are frameworks.</li>
+          <li>Angular and Vue.js are built on top of React.</li>
+          <li>
+            React focuses on UI; Angular and Vue.js offer comprehensive tools
+            for full app development
+          </li>
+        </ul>
+        <li>Library vs. Framework:</li>
+        <ul>
+          <li>A library offers specific functionality.</li>
+          <li>
+            A framework provides a set of tools for building complex apps.
+          </li>
+          <li>A framework provides a set of tools and guidelines</li>
+          <li>
+            In simpler terms: React is a tool; Angular and Vue.js are toolsets.
+          </li>
+        </ul>
+        <li>React's Speciality:</li>
+        <ul>
+          <li>React's main role is crafting dynamic, interactive UIS.</li>
+          <li>
+            it doesn't handle routing, HTTp calls, state management, and more
+          </li>
+        </ul>
+        <li>react's Flexibility:</li>
+        <ul>
+          <li>React doesn't dictate tool choice for other app aspects.</li>
+          <li>Devlopers pick what fits their project best.</li>
+        </ul>
+        <li>About Angular and Vue.js:</li>
+        <ul>
+          <li>
+            Angular, developed by Google, provides a robust framework with a
+            steep learning curve
+          </li>
+          <li>
+            Vue.js is known for its simplicity and ease of integration, making
+            it beginner friendly
+          </li>
+        </ul>
+        <li>
+          <a href="React_vs_Angular_vs_Vue.html" target="_blank"
+            >React vs Angular vs Vue</a
+          >
+        </li>
+      </ul>
+    </ul>
+
+    <ul>
+      <li><h1>Using Forms</h1></li>
+      <ul>
+        <li>
+          State management: Each input's state is stored in the component's
+          state
+        </li>
+        <li>handling Changes: use onChange to detect input changes.</li>
+        <li>
+          Submission: Utilize onSubmit for form submissions and prevent default
+          with event.preventDefault().
+        </li>
+        <li>
+          Validation: Implement custom validation or use third-party libraries.
+        </li>
+      </ul>
+    </ul>
+
+    <ul>
+      <li>
+        <h1>
+          useRef (this is a hook) (simple note which one is start with use its
+          hook)
+        </h1>
+      </li>
+      <ul>
+        <li style="color: red">
+          useRef allows acess to DOM elements and retains mutable value without
+          re-renders.
+        </li>
+        <li>useRef returns a mutable ref object</li>
+        <li>Used with the ref attribute for direct DOM interactions</li>
+        <li>Can hold previous state or prop values</li>
+        <li>Not limited to DOM referemces; can hold any value</li>
+        <li>Refs can be passed as props also</li>
+      </ul>
+    </ul>
+
+    <ul>
+      <li><h1>useState vs useRef</h1></li>
+      useState
+      <ul>
+        <li style="color: red">
+          Syntax : const [value, setValue] = useState(initialValue);
+        </li>
+        <li>
+          useState is used to store and update values that change in the UI.
+        </li>
+        <li>When the state changes → the component re-renders.</li>
+        <li>
+          Mostly used for: input values, counters, toggles, API data, etc.
+        </li>
+      </ul>
+      useRef
+      <ul>
+        <li style="color: red">
+          Syntax: const refName = useRef(initialValue);
+        </li>
+        <li>
+          useRef is used to store a value that does NOT cause re-render when
+          changed.
+        </li>
+        <li>You can access DOM elements directly.</li>
+        <li>
+          You can store values like variables (timer ID, previous values, etc.)
+        </li>
+        <li>Updating .current does NOT re-render component</li>
+      </ul>
+      <ul>
+        <li><h3>useState = when changes should update the UI.</h3></li>
+        <li>
+          <h3>
+            useRef = when you want to store something without re-rendering OR
+            access DOM
+          </h3>
+        </li>
+      </ul>
+    </ul>
+
+    <ul>
+      <li><h1>Update state from Previous State</h1></li>
+      <ul>
+        <li>
+          Spread Operator (...) : Use to maintain immutability when updating
+          arrays or objects.
+        </li>
+        <li>
+          Functional Updates in useState: Use (existingPosts)=&gt;
+          [...existingPosts, newPost] to avoid stale values during asynchronous
+          updates.
+        </li>
+        <li>Functional Update way is better than immutability.</li>
+        <li style="color: red">
+          When updating state based on the previous state, React recommends
+          using a functional update.
+        </li>
+        <li>here see use in App.jsx file there also explain some comments</li>
+      </ul>
+      <ul>
+        WHY NEED
+      </ul>
+      <ul>
+        <li>Because state updates in React are asynchronous.</li>
+        <li>That means setState may not immediately update the value.</li>
+        <li>
+          So if you depend on the old state value, use the functional update.
+        </li>
+      </ul>
+      <ul>
+        Syntax
+        <li>setState((prevValue) =&gt; { return prevValue + 1; });</li>
+      </ul>
+    </ul>
+
+    <ul>
+      <li>
+        <h1>Context API</h1>
+      </li>
+      <ul>
+        <li></li>
+      </ul>
+    </ul>
   </body>
 </html>
