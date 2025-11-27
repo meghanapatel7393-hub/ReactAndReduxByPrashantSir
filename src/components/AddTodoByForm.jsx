@@ -1,10 +1,17 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { IoMdAddCircleOutline } from "react-icons/io";
+import TodoItemsContext from "../store/todo-items-store";
 // import { BiMessageAdd } from "react-icons/bi";
 
 function AddTodoByForm({ onAddItems }) {
   /*
   this way is also working by video */
+
+  const contextObj = useContext(TodoItemsContext);
+  const onAddItemsbyContext = contextObj.onAddItems;
+
+  //comon way to access data
+  // const { items, onDeleteItems, onAddItems } = useContext(TodoItemsContext);
 
   const [todoName, setTodoName] = useState("");
   const [todoDate, setTodoDate] = useState("");
@@ -14,7 +21,8 @@ function AddTodoByForm({ onAddItems }) {
     event.preventDefault();
     console.log(event);
 
-    onAddItems(todoName, todoDate);
+    // onAddItems(todoName, todoDate); //this is add by props
+    onAddItemsbyContext(todoName, todoDate); // this is add by context
     setTodoDate("");
     setTodoName("");
   };

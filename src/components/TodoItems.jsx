@@ -1,15 +1,29 @@
+import { useContext } from "react";
+import TodoItemsContext from "../store/todo-items-store";
 import TodoItem from "./TodoItem";
 import style from "./TodoItems.module.css";
+
 function TodoItems({ todoItems, onDeleteItems }) {
+  //using this way we can used any data without passing props
+  // const todoItemFromCOntext = useContext(TodoItemsContext);
+  // console.log(`item from context:${todoItemFromCOntext} ${todoItems}`);
+  //above way not access data because now we have changed value into object so we have to use below way
+  const contextObj = useContext(TodoItemsContext);
+  const todoItemFromCOntext = contextObj.items;
+
+  //comon way to access data
+  // const { items, onDeleteItems, onAddItems } = useContext(TodoItemsContext);
   return (
     <div className={style["items-container"]}>
-      {todoItems.map((todo) => {
+      {/**working fine to use data uisng context below without used props:  todoItems.map((todo) => { return <TodoItem todoDate={todo.date} todoName={todo.name} key={todo.name}  onDeleteItems={onDeleteItems}/>; }) */}
+      {todoItemFromCOntext.map((todo) => {
         return (
           <TodoItem
             todoDate={todo.date}
             todoName={todo.name}
             key={todo.name}
-            onDeleteItems={onDeleteItems}
+            // onDeleteItems={onDeleteItems} // here used props function both working
+            onDeleteItems={contextObj.onDeleteItems} //here used context function both working  this things also we can implement on TodoItem component
           />
         );
       })}

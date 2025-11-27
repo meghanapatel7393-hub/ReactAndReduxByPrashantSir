@@ -6,6 +6,7 @@ import "./TodoApp.css"; //this is used for Todo
 import WlcomeMessage from "./components/WlcomeMessage";
 import AddTodoByForm from "./components/AddTodoByForm";
 import AddTodoByuseRef from "./components/AddTodoByuseRef";
+import TodoItemsContext from "./store/todo-items-store";
 // import Hello from "./Hello";
 // import KgButton from "./KgButton";
 // import Random from "./Random";
@@ -36,19 +37,29 @@ function App() {
   };
   return (
     <>
-      <center>
-        <AppName />
-        {/* <AddTodo onAddItems={(name, date) => onAddItems(name, date)} />  this way also working */}
-        <AddTodo onAddItems={onAddItems} />
-        <AddTodoByForm onAddItems={onAddItems} />
-        <AddTodoByuseRef onAddItems={onAddItems} />
-        {items.length === 0 && <WlcomeMessage />}
-        <TodoItems
-          todoItems={items}
-          // onDeleteItems={(name) => onDeleteItems(name)}  /* this way also working */
-          onDeleteItems={onDeleteItems}
-        />
-      </center>
+      {/*here we can conver value into object using {} when used context provider we does not need to pass data via props but here we have not remove props because for learning purpose props and context both are used - for learning purpose also not need to set OnDeleteItems and OnAddItems on component because its also done by context currently i have not remove from demo but its not need when define context*/
+      /** one more things which items is changed to much frequently that is not good for performance with context because when data changed in context then all components are re-rendered */}
+      <TodoItemsContext.Provider
+        value={{
+          items: items,
+          onAddItems: onAddItems,
+          onDeleteItems: onDeleteItems,
+        }}
+      >
+        <center>
+          <AppName />
+          {/* <AddTodo onAddItems={(name, date) => onAddItems(name, date)} />  this way also working */}
+          <AddTodo onAddItems={onAddItems} />
+          <AddTodoByForm onAddItems={onAddItems} />
+          <AddTodoByuseRef onAddItems={onAddItems} />
+          {items.length === 0 && <WlcomeMessage />}
+          <TodoItems
+            todoItems={items}
+            // onDeleteItems={(name) => onDeleteItems(name)}  /* this way also working */
+            onDeleteItems={onDeleteItems}
+          />
+        </center>
+      </TodoItemsContext.Provider>
     </>
   );
 

@@ -830,7 +830,86 @@
         <h1>Context API</h1>
       </li>
       <ul>
-        <li></li>
+        <li style="font-weight: 1000; color: red">
+          Context API is a way to share data between components without passing
+          props manually at every level.
+        </li>
+        <li>
+          Normally, you pass data like this: Parent → Child → GrandChild →
+          GreatGrandChild
+        </li>
+        <li>This is called prop drilling.</li>
+        <li>Context API helps you avoid this.</li>
+        <li>
+          Prop Drilling: Context API addresses prop drilling; component
+          composition is an atlernative.
+        </li>
+        <li>FOlder Setup: Use a store folder for context files.</li>
+        <li>
+          Initialization: Use React.createContext() with initial state and
+          export it.
+        </li>
+        <li>Provide: Implement with contextName.Provider in componnent</li>
+        <li>Acces Value: Use useContext(contextName) hook</li>
+        <li>Dynamic Data:Combine context value with state</li>
+        <li>Export Functions: Context can also export function for actions</li>
+        <li>
+          Logic Separation : This helps keep the UI and Business logic separate
+          from each
+        </li>
+        <ul>
+          <li><h1>Why use Context API?</h1></li>
+          <ul>
+            <li>
+              Use it when you have data that many components need, such as:
+            </li>
+            <li>User data (name, token, login status)</li>
+            <li>Theme (dark/light mode)</li>
+            <li>Language setting</li>
+            <li>Cart items</li>
+            <li>App settings</li>
+          </ul>
+          <li><h1>How Context API Works (3 Steps)</h1></li>
+          <ul>
+            <li style="font-weight: 1000; color: red">1. Create Context :</li>
+            <ul>
+              <li>import { createContext } from "react";</li>
+              <li>export const UserContext = createContext();</li>
+            </ul>
+            <li style="font-weight: 1000; color: red">
+              2. Provide Context (wrap parent)
+            </li>
+            <ul>
+              <li>import { UserContext } from "./UserContext";</li>
+              <li>
+                function App() <br />{ <br />return (
+                <br />&lt;UserContext.Provider value={{ name: "Bhavesh"
+                }}&gt;<br />
+                &lt;Home /&gt;<br />
+                &lt;/UserContext.Provider&gt; <br />);<br />
+                }<br />
+              </li>
+              <li>Here, value is the data shared.</li>
+            </ul>
+            <li style="font-weight: 1000; color: red">
+              3. Use Context (any child component)
+            </li>
+            <ul>
+              <li>
+                <br />
+                import { useContext } from "react"; <br />
+                import { UserContext } from "./UserContext";
+                <br />
+                <br />function Home() { <br />
+                const user = useContext(UserContext);
+                <br />
+                <br />
+                return &lt;h1&gt;Hello, {user.name}&lt;/h1&gt; ; <br />}
+              </li>
+              <li>👏 Now child components get data without props.</li>
+            </ul>
+          </ul>
+        </ul>
       </ul>
     </ul>
   </body>
