@@ -912,5 +912,172 @@
         </ul>
       </ul>
     </ul>
+    <ul>
+      <li>
+        <h1>Use Reducer Hook</h1>
+      </li>
+      <ul>
+        <li>
+          UseReducer hook is used to manage complex state in a component
+          efficiently.
+        </li>
+        <li>useReducer is a React hook used to manage complex state logic.</li>
+        <li>
+          useReducer is a hook in React that offer more control over state
+          operations comprare to useState, especially when the state logic is
+          complex
+        </li>
+        <li>It is an alternative to useState, useful when:</li>
+        <ul>
+          <li>State has multiple values/fields</li>
+          <li>State updates are complex</li>
+          <li>Actions describe what should happen</li>
+          <li>Many actions update the same state</li>
+          <li>You want to organize logic like Redux</li>
+          <li>Using Context API (Context + useReducer = mini Redux)</li>
+          <li>State updates are done by dispatching actions</li>
+        </ul>
+        <li>Basic Idea</li>
+        <ul>
+          <li>useReducer takes two things/component:</li>
+          <ul>
+            <li>
+              1️⃣ A reducer function - A pure function that takes the current
+              state and an action and return new state
+            </li>
+            <li>
+              2️⃣ An initial state : it's invoked as const[state, dispatch] =
+              useReducer(reducer, initialState);
+            </li>
+            <li>
+              Action- An object describing what happened, typically having a
+              type property
+            </li>
+            <li>It returns:</li>
+            <ul>
+              <li>state → current state</li>
+              <li>
+                dispatch → function to trigger actions - Actionas are dispatched
+                using the dispatch function, which invokes the reducer with the
+                current state and the given action
+              </li>
+            </ul>
+          </ul>
+        </ul>
+        <br />
+        <li>
+          Use Cases: Particularly useful for managing state in large components
+          or when the next state depends on the previous one.
+        </li>
+        <li>
+          Predictable State management: Due to its strict structure, it leads to
+          more predictable and maintainable state management
+        </li>
+        <br />
+        <li>Syntax</li>
+        <ul>
+          <li>const [state, dispatch] = useReducer(reducer, initialState);</li>
+        </ul>
+        <li>Reducer example:</li>
+        <ul>
+          <li>
+            <pre>
+function reducer(state, action) {
+  switch (action.type) {
+    case "increment":
+      return { count: state.count + 1 };
+
+    case "decrement":
+      return { count: state.count - 1 };
+
+    default:
+      return state;
+  }
+}
+</pre
+            >
+          </li>
+        </ul>
+        <li>
+          <a href="useReducerExample.html" target="_blank"
+            >useReducer Example</a
+          >
+        </li>
+      </ul>
+      <ul>
+        <li style="color: red">
+          Different example of With useState (messy) and useReducer
+        </li>
+        <ul>
+          <li>With useState (messy)</li>
+          <ul>
+            <pre>
+const [name, setName] = useState("");
+const [age, setAge] = useState(0);
+const [isActive, setIsActive] = useState(false);
+</pre
+            >
+          </ul>
+          <li>With useReducer (clean)</li>
+          <ul>
+            <pre>
+const initialState = {
+    name: "",
+    age: 0,
+    isActive: false,
+};
+    </pre
+            >
+
+            <!-- Reducer Function -->
+            <pre>
+function reducer(state, action) {
+    return { 
+        ...state, 
+        [action.field]: action.value 
+    };
+}
+    </pre
+            >
+          </ul>
+          <li>🔥 Full Example: Counter with useReducer</li>
+          <ul>
+            <li>
+              <pre>
+                import { useReducer } from "react";
+
+                const initialState = { count: 0 };
+
+                function reducer(state, action) {
+                  switch (action.type) {
+                    case "increment":
+                      return { count: state.count + 1 };
+                    case "decrement":
+                      return { count: state.count - 1 };
+                    default:
+                      return state;
+                  }
+                }
+
+                function Counter() {
+                  const [state, dispatch] = useReducer(reducer, initialState);
+                
+                  return (
+                    &lt;&gt;
+                      &lt;h1&gt;Count: {state.count}&lt;/h1&gt;
+                      &lt;button onClick={() =&gt; dispatch({ type: "increment" })}&gt;+&lt;/button&gt;
+                      &lt;button onClick={() =&gt; dispatch({ type: "decrement" })}&gt;-&lt;/button&gt;
+                    &lt;/&gt;
+                  );
+                }
+
+                export default Counter;
+
+              </pre>
+            </li>
+          </ul>
+        </ul>
+      </ul>
+    </ul>
   </body>
 </html>

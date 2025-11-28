@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useReducer } from "react";
 import AddTodo from "./components/AddTodo";
 import AppName from "./components/AppName";
 import TodoItems from "./components/TodoItems";
@@ -7,13 +7,32 @@ import WlcomeMessage from "./components/WlcomeMessage";
 import AddTodoByForm from "./components/AddTodoByForm";
 import AddTodoByuseRef from "./components/AddTodoByuseRef";
 import TodoItemsContext from "./store/todo-items-store";
+import AddTodoByuseReducer from "./components/AddTodoByuseReducer";
 // import Hello from "./Hello";
 // import KgButton from "./KgButton";
 // import Random from "./Random";
 
+//this if pure reducer function we can write in new files
+const todoItemsReducer = (stateCurTodoItem, action) => {
+  let newTodoItems = stateCurTodoItem;
+  console.log(stateCurTodoItem.length);
+  if (action.type === "NEW_ITEM") {
+    newTodoItems = [
+      ...stateCurTodoItem,
+      { name: action.payload.name, date: action.payload.date },
+    ];
+  } else if (action.type === "DELETE_ITEM") {
+    newTodoItems = stateCurTodoItem.filter(
+      (item) => item.name !== action.payload.name
+    );
+  }
+  return newTodoItems;
+};
 //this is called functional component
 function App() {
-  const [items, setItems] = useState([]);
+  //const [items, setItems] = useState([]); //this is using useState
+
+  const [items, dispatchTodoItem] = useReducer(todoItemsReducer, []);
 
   /*this is for todo app*/
   // const todoItem = [
@@ -22,10 +41,17 @@ function App() {
   //   { name: "Like This Video", date: "4/10/2025" },
   // ];
   const onAddItems = (name, date) => {
+    const newItemAction = {
+      type: "NEW_ITEM",
+      payload: { name: name, date: date },
+    };
+    dispatchTodoItem(newItemAction);
+
     //here both way work but second way is better way than first way because first way is called immutability and second way is called Functional update
     //setItems([...items, { name: name, date: date }]); //this things some times give wrong result when heavy data loading so solution is Functional update
     //better way is below
-    setItems((currentValue) => [...currentValue, { name: name, date: date }]); //this way gives upto date result
+    /* setItems((currentValue) => [...currentValue, { name: name, date: date }]); here last used this function -bhavesh bewfor changed reducer*/
+    //this way gives upto date result
     /*
     difference between both is that first one is called immutability and second one is called Functional update.
 
@@ -33,7 +59,15 @@ function App() {
   };
   const onDeleteItems = (name) => {
     console.log(name);
-    setItems(items.filter((item) => item.name !== name));
+
+    const deleteItemAction = {
+      type: "DELETE_ITEM",
+      payload: { name: name },
+    };
+    dispatchTodoItem(deleteItemAction);
+
+    //this code working fine before changed into reducer
+    // setItems(items.filter((item) => item.name !== name));
   };
   return (
     <>
@@ -52,6 +86,7 @@ function App() {
           <AddTodo onAddItems={onAddItems} />
           <AddTodoByForm onAddItems={onAddItems} />
           <AddTodoByuseRef onAddItems={onAddItems} />
+          <AddTodoByuseReducer />
           {items.length === 0 && <WlcomeMessage />}
           <TodoItems
             todoItems={items}
